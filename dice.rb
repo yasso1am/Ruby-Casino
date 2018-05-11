@@ -15,6 +15,10 @@ class Dice
  def show_sum
    print "Sum of dice is ", @die1 + @die2, ".\n"
  end
+
+ def dice_sum
+ 	roll_sum = @die1 + @die2
+ end
 end
 # 
 # d = Dice.new
