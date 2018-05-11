@@ -1,7 +1,7 @@
 require_relative 'player'
-require_relative 'wallet'
 require_relative 'high_low'
 # require_relative 'game1'
+
 # require_relative 'game2'
 # require_relative 'game3'
 class Main
@@ -27,7 +27,8 @@ def instructions
   puts "\t2) Play game2"
   puts "\t3) Play game3"
   puts "\t4) Check your wallet"
-  puts "\t5) Exit"
+  puts "\t5) Refresh your wallet"
+  puts "\t6) Exit"
   user_selection
 end
 
@@ -42,9 +43,12 @@ def user_selection
       Dice.new(player)
     when 4
       puts
-      puts "You have #{@player.bankroll.wallet} remaining"
+      puts "You have #{@player.bankroll} remaining"
       puts
     when 5
+      puts "Let's start over"
+      @player.freshwallet
+    when 6
       puts "Thanks for playing"
       exit
     else

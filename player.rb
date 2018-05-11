@@ -1,5 +1,3 @@
-require_relative 'wallet'
-
 class Player
   attr_accessor :name, :bankroll
 
@@ -7,7 +5,25 @@ class Player
     puts "What's your name?"
     name = gets.chomp
     @name = name
-    @bankroll = Wallet.new
+    @bankroll = 1000
   end
 
+# def freshwallet
+#   @bankroll = 1000
+# end
+
+  def freshwallet
+    @bankroll = 1000
+  end
 end
+
+
+#
+# class Wallet
+#   attr_accessor :wallet
+#
+#   def initialize
+#     @wallet = 1000
+#   end
+#
+# end
