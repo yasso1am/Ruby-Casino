@@ -5,7 +5,7 @@ require_relative 'high_low'
 # require_relative 'game2'
 # require_relative 'game3'
 class Main
-  attr_accessor :player
+attr_accessor :player
 
   def initialize
     player_menu
@@ -37,12 +37,12 @@ def user_selection
     when 1
       HighLow.new(player)
     when 2
-      play_game2
+      Roulette.new(player)
     when 3
-      play_game3
+      Dice.new(player)
     when 4
       puts
-      puts "You have #{@p1.bankroll.wallet} remaining"
+      puts "You have #{@player.bankroll.wallet} remaining"
       puts
     when 5
       puts "Thanks for playing"

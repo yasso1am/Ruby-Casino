@@ -8,5 +8,7 @@ class HighLow
 def initialize(player)
   puts "Hello #{player.name}"
   puts player.bankroll.wallet
+  player.bankroll.wallet = (player.bankroll.wallet - 500)
+  puts player.bankroll.wallet
 end
 end
