@@ -4,6 +4,10 @@ require_relative 'high_low'
 
 # require_relative 'game2'
 # require_relative 'game3'
+
+require_relative "roulette" 
+
+
 class Main
 attr_accessor :player
 
@@ -24,7 +28,7 @@ end
 
 def instructions
   puts "\t1) Play High-Low"
-  puts "\t2) Play game2"
+  puts "\t2) Play Roulette"
   puts "\t3) Play game3"
   puts "\t4) Check your wallet"
   puts "\t5) Refresh your wallet"
