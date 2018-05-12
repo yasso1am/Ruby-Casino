@@ -5,7 +5,7 @@ require_relative 'high_low'
 # require_relative 'game2'
 # require_relative 'game3'
 
-require_relative "roulette" 
+require_relative "roulette"
 
 
 class Main
@@ -29,7 +29,7 @@ def instructions
   @player.bankroll
   puts "\t1) Play High-Low"
   puts "\t2) Play Roulette"
-  puts "\t3) Play game3"
+  puts "\t3) Play Dice"
   puts "\t4) Check your wallet"
   puts "\t5) Refresh your wallet"
   puts "\t6) Exit"
