@@ -17,16 +17,16 @@ attr_accessor :player
 
 def player_menu
   puts "*" * 60
-  puts "\tWelcome to Casino DPL"
+  puts "\tWelcome to Casino DPL".colorize(:blue)
   puts "\tGood luck!"
-  puts "\tWhat's your name?"
   puts "*" * 60
   @player = Player.new
-    puts "Welcome #{@player.name}, try your luck!"
+    puts "\tWelcome #{@player.name}, try your luck!".colorize(:blue)
     instructions
 end
 
 def instructions
+  @player.bankroll
   puts "\t1) Play High-Low"
   puts "\t2) Play Roulette"
   puts "\t3) Play game3"
@@ -40,7 +40,7 @@ def user_selection
   choice = gets.strip.to_i
   case choice
     when 1
-      HighLow.new(player)
+      HighLow.new(player, self)
     when 2
       Roulette.new(player)
     when 3
