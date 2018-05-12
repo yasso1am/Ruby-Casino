@@ -29,13 +29,8 @@ end
 def instructions
   @player.bankroll
   puts "\t1) Play High-Low"
-
   puts "\t2) Play Roulette"
   puts "\t3) Play Dice"
-
-  puts "\t2) Roulette"
-  puts "\t3) Craps"
-
   puts "\t4) Check your wallet"
   puts "\t5) Refresh your wallet"
   puts "\t6) Exit"
