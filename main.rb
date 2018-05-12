@@ -1,5 +1,6 @@
 require_relative 'player'
 require_relative 'high_low'
+require_relative 'dice_game'
 # require_relative 'game1'
 
 # require_relative 'game2'
@@ -9,7 +10,7 @@ require_relative "roulette"
 
 
 class Main
-attr_accessor :player
+attr_accessor :player, :bankroll
 
   def initialize
     player_menu
@@ -28,8 +29,13 @@ end
 def instructions
   @player.bankroll
   puts "\t1) Play High-Low"
+
   puts "\t2) Play Roulette"
   puts "\t3) Play Dice"
+
+  puts "\t2) Roulette"
+  puts "\t3) Craps"
+
   puts "\t4) Check your wallet"
   puts "\t5) Refresh your wallet"
   puts "\t6) Exit"
@@ -44,7 +50,7 @@ def user_selection
     when 2
       Roulette.new(player)
     when 3
-      Dice.new(player)
+      Craps.new(player)
     when 4
       puts
       puts "You have #{@player.bankroll} remaining"
