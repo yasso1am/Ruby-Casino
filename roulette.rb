@@ -53,32 +53,6 @@ class Roulette
 
     end 
 
-
-    # def roulette_menu
-       
-    #     puts "Would you like to play? Y or N?"
-    #     puts 
-    #     print "> "
-    #     want_to_play = gets.strip 
-    #     case
-    #         when want_to_play == "Y" || want_to_play == "y"
-    #             instructions_and_bet
-    #         when want_to_play == "N" || want_to_play == "n"
-    #             Main.rb 
-    #         else 
-    #             puts "Invalid choice."
-    #             routlette_menu 
-    #     end 
-    # end 
-
-
-
-    #instructions are given with odds
-    # they are prompted to place a certain amount of money for the bet
-    # the money they bet will be deducted from wallet
-    # numbers can be between 0-36
-    # They can also choose to bet on red or black 
-
     def instructions_and_bet
         puts
         puts "\tWelcome to Roulette"
@@ -117,6 +91,7 @@ class Roulette
   # I need to fix this so the bet amount can only be a number 
     def bet_on_a_color 
         puts "\nPlease choose the amount of your bet."
+        puts "Your bankroll balance is #{@player.bankroll}."
         print "\n Your bet amount is: $"
         @bet_amount = gets.to_i
         player.bankroll = (@player.bankroll - @bet_amount) 
@@ -141,6 +116,7 @@ class Roulette
     # I need to fix this so the bet amount can only be a number 
     def bet_on_a_number
         puts "\nPlease choose the amount of your bet."
+        puts "Your bankroll balance is #{@player.bankroll}."
         print "\n Your bet amount is: $"
         @bet_amount = gets.to_i
         player.bankroll = (@player.bankroll - @bet_amount) 

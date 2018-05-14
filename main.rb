@@ -28,7 +28,7 @@ end
 
 def instructions
   puts "\t1) Play High-Low"
-  puts "\t2) Play Roulette"
+  puts "\t2) Play "
   puts "\t3) Play game3"
   puts "\t4) Check your wallet"
   puts "\t5) Refresh your wallet"
