@@ -16,7 +16,7 @@ class Craps
 		puts
 		puts "You have $ #{player.bankroll}".colorize(:cyan)
 		puts
-		puts "How much would you like to bet ($10 max)?"
+		puts "How much would you like to bet?"
 		puts
 		@bet = gets.strip.to_i
 	end
