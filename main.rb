@@ -7,6 +7,7 @@ require_relative 'dice_game'
 # require_relative 'game3'
 
 require_relative "roulette"
+require_relative "slots"
 
 
 class Main
@@ -31,9 +32,10 @@ def instructions
   puts "\t1) Play High-Low"
   puts "\t2) Play Roulette"
   puts "\t3) Play Dice"
-  puts "\t4) Check your wallet"
-  puts "\t5) Refresh your wallet"
-  puts "\t6) Exit"
+  puts "\t4) Play Slots"
+  puts "\t5) Check your wallet"
+  puts "\t6) Refresh your wallet"
+  puts "\t7) Exit"
   user_selection
 end
 
@@ -47,13 +49,15 @@ def user_selection
     when 3
       Craps.new(player)
     when 4
+      Slots.new(player)
+    when 5
       puts
       puts "You have #{@player.bankroll} remaining"
       puts
-    when 5
+    when 6
       puts "Let's start over"
       @player.freshwallet
-    when 6
+    when 7
       puts "Thanks for playing"
       exit
     else

@@ -1,17 +1,31 @@
-lottery_items = [ "💎", "💰", "👑" , "💀" ]
-@lottery = [lottery_items.dup, lottery_items.dup, lottery_items.dup, lottery_items.dup]
-@bank_roll = 100
+require_relative 'player'
+
+
+class Slots
+        attr_accessor :player
+
+
+def initialize(player)
+    @player = player
+    puts "Hello #{@player.name}"
+    lottery_items = [ "💎", "💰", "👑" , "💀" ]
+    @lottery = [lottery_items.dup, lottery_items.dup, lottery_items.dup, lottery_items.dup]
+    lottery_game
+end 
+
+
+
 
 
 def lottery_game 
     system("clear") 
     puts "****************************"
-    puts "\nWelcome to Michelle's Lottery Game. You begin with a bank roll of $100."
+    puts "\nWelcome to the Slots."
     puts "\nYou pay $1 each time you play."
     puts "\nIf you win, your bank roll is tripled."
     puts "If you get four skulls, you immediately go bankrupt."
     puts "\nIf your bank roll reaches 0, you lose."
-    puts "\nYour bank roll is #{@bank_roll}" 
+    puts "\nYour bank roll is #{@player.bankroll}" 
     puts "\nWould you like to play? Y or N?"
     like_to_play = gets.strip 
     if like_to_play == "Y" || like_to_play == "y"
@@ -28,12 +42,12 @@ end
 def let_us_play 
     system("clear") 
     puts "****************************"
-    puts "\nWelcome to Michelle's Lottery Game. You begin with a bank roll of $25."
+    puts "\nWelcome to the Slots."
     puts "\nYou pay $1 each time you play."
     puts "\nIf you win, your bank roll is tripled."
     puts "\nIf you get four skulls, you immediately go bankrupt."
     puts "\nIf your bank roll reaches 0, you lose."
-    puts "\nYour bank roll is #{@bank_roll}" 
+    puts "\nYour bank roll is #{@player.bankroll}" 
     #need to change below to a sample of 4 if I add the skulls 
     pull_the_handle = @lottery.flatten.sample(4)
     # I had to have my husband write the code that removes the brackets. Please let me know if 
@@ -42,16 +56,16 @@ def let_us_play
 
     if pull_the_handle == ["💎", "💎", "💎", "💎" ]
         puts "\nYOU WIN! YOU WIN! YOU WIN! YOU WIN! YOU WIN!"
-        @bank_roll = @bank_roll * 3
-        puts "Your new bank roll is #{@bank_roll}" 
+        @player.bankroll = @player.bankroll * 3
+        puts "Your new bank roll is #{@player.bankroll}" 
     elsif pull_the_handle == ["💰", "💰", "💰", "💰" ]
         puts "\nYOU WIN! YOU WIN! YOU WIN! YOU WIN! YOU WIN!"
-        @bank_roll = @bank_roll * 3
-        puts "Your new bank roll is #{@bank_roll}" 
+        @player.bankroll = @player.bankroll * 3
+        puts "Your new bank roll is #{@player.bankroll}" 
     elsif pull_the_handle == ["👑 ", "👑", "👑", "👑"]
         puts "\nYOU WIN! YOU WIN! YOU WIN! YOU WIN! YOU WIN!" 
-        @bank_roll = @bank_roll * 3
-        puts "Your new bank roll is #{@bank_roll}" 
+        @player.bankroll = @player.bankroll * 3
+        puts "Your new bank roll is #{@player.bankroll}" 
     elsif pull_the_handle == [ "💀", "💀", "💀", "💀"]
         puts "You have gone bankrupt.Thanks for the money!"
         @bank_roll = 0
@@ -59,12 +73,11 @@ def let_us_play
         exit 
     else 
         puts "\nSorry, try again."
-        @bank_roll = @bank_roll - 1 
+        @player.bankroll = @player.bankroll - 1
     end 
 
-    if @bank_roll == 0 
+    if @player.bankroll == 0 
         puts "You are out of money. Come back when you have more. Loser." 
-        exit 
     else play_more 
     end 
 end 
@@ -77,8 +90,7 @@ def play_more
         let_us_play
     elsif play_again == "N" or play_again == "n" 
         puts "Come back soon!"
-        puts "You leave with #{@bank_roll}"
-        exit 
+        puts "You leave with #{@player.bankroll}"
     # add something here that if they exit, 
     # their score is saved to a file and three high scores are displayed. 
     # also add a way for them to add their name. 
@@ -87,7 +99,4 @@ def play_more
         play_more 
     end 
 end 
-
-
-
-lottery_game 
+end
