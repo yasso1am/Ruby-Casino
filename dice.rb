@@ -17,11 +17,13 @@ class Dice
  end
 
  def dice_sum
- 	roll_sum = @die1 + @die2
+ 	@roll_sum = @die1 + @die2
  end
 end
 # 
-# d = Dice.new
-# d.show_dice
-# puts
-# d.show_sum
+ d = Dice.new
+
+#d.roll
+#puts d.dice_sum
+#d.roll
+#puts d.dice_sum

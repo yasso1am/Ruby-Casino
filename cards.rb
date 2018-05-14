@@ -8,4 +8,13 @@ class Card
    @suit = suit
    @color = color
  end
+
+ def to_numeric_value
+   return 11 if @rank == "J"
+   return 12 if @rank == "Q"
+   return 13 if @rank == "K"
+   return 14 if @rank == "A"
+   return @rank.to_i
+ end
+
 end
